@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Smart Bloodinfo Stepper</title>
+    <script>
+        function onFrameLoad() {
+            const iframe = document.getElementById("stepFrame");
+            const currentUrl = iframe.contentWindow.location.href;
+
+            if (currentUrl.includes("emi4_save.do")) {
+                // 저장 페이지가 열렸으면 3초 뒤 다른 페이지로 자동 이동
+                setTimeout(() => {
+                    iframe.src = "https://leebeyondgo.github.io/rc-kiosk-app/#/location/bus_02";
+                }, 3000);
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>절차 진행중...</h1>
+    <iframe id="stepFrame"
+            src="https://smart.bloodinfo.net:59979/emi2/emi4.do?lang=ko"
+            width="100%"
+            height="600"
+            onload="onFrameLoad()"
+            frameborder="0">
+    </iframe>
+</body>
+</html>
